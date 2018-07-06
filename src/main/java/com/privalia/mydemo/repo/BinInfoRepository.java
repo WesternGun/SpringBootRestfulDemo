@@ -7,10 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.privalia.mydemo.domain.Bin_info;
+import com.privalia.mydemo.model.BinInfo;
 
 
 @Repository
-public interface BinInfoRepository extends JpaRepository<Bin_info, Long>{
-
+public interface BinInfoRepository extends JpaRepository<BinInfo, Long>{
+    BinInfo findByBin(String bin_num);
+    List<BinInfo> findAllByBin(String bin_num);
 }

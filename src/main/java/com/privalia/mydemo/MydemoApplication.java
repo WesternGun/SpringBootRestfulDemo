@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import com.privalia.mydemo.domain.Bin_info;
+import com.privalia.mydemo.model.BinInfo;
 import com.privalia.mydemo.repo.BinInfoRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,15 +39,15 @@ public class MydemoApplication {
 //	    };
 //	}
 	
-	@Bean
-	public CommandLineRunner cmdRunnerSave(BinInfoRepository repository) {
-	    return args -> {
-	        log.info("Saving an entity...");
-	        repository.save(new Bin_info("654321", "{'name': 'sss', 'date':'today', 'fields':['bin', 'json_full', 'bank', 'type', 'brand']}", new Date()));
-	        log.info("Querying an entity...");
-	        System.out.println(repository.findById(new Long(1)).toString());
-	        log.info("End");
-	        
-	    };
-	}
+//	@Bean
+//	public CommandLineRunner cmdRunnerSave(BinInfoRepository repository) {
+//	    return args -> {
+//	        log.info("Saving an entity...");
+//	        repository.save(new Bin_info("654321", "{'name': 'sss', 'date':'today', 'fields':['bin', 'json_full', 'bank', 'type', 'brand']}", new Date()));
+//	        log.info("Querying an entity...");
+//	        System.out.println(repository.findById(new Long(1)).toString());
+//	        log.info("End");
+//	        
+//	    };
+//	}
 }

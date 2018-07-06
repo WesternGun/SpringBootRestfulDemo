@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev
+
+  jackson:
+    date-format: dd/MM/yyyy
+
+  datasource:
+    url: jdbc:postgresql://10.136.182.76:5432/test1
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+# Disable feature detection by this undocumented parameter. Check the org.hibernate.engine.jdbc.internal.JdbcServiceImpl.configure method for more details.
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+# Because detection is disabled you have to set correct dialect by hand.
+      database-platform: org.hibernate.dialect.PostgreSQL9Dialect

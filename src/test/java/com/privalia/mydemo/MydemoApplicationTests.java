@@ -8,9 +8,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MydemoApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
+    
+    /**
+     * Test if the application will launch.
+     * @throws Exception
+     */
+    @Test
+    public void contextLoads() throws Exception {
+    }
 
 }
