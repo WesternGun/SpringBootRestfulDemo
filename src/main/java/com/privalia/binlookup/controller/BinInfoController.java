@@ -1,4 +1,4 @@
-package com.privalia.mydemo.controller;
+package com.privalia.binlookup.controller;
 
 import java.util.List;
 
@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.privalia.mydemo.model.BinInfo;
-import com.privalia.mydemo.repo.BinInfoRepository;
+import com.privalia.binlookup.model.BinInfo;
+import com.privalia.binlookup.repo.BinInfoRepository;
 
 @RestController
-@RequestMapping(value="/mydemo", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class MyDemoController {
+@RequestMapping(value="/")
+public class BinInfoController {
     
     @Autowired
     private BinInfoRepository repository;
@@ -43,7 +44,7 @@ public class MyDemoController {
         return (found.isEmpty() ? null : found.get(0));
     }
     
-    @RequestMapping(value="/bin", method=RequestMethod.PUT)
+    @RequestMapping(value="/bin", method=RequestMethod.POST)
     public BinInfo insertBIN(@Valid @RequestBody BinInfo bin_info) {
         repository.save(bin_info);
         BodyBuilder builder = (BodyBuilder) ResponseEntity.status(HttpStatus.OK);

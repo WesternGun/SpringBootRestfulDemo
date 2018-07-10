@@ -1,4 +1,4 @@
-package com.privalia.mydemo;
+package com.privalia.binlookup;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

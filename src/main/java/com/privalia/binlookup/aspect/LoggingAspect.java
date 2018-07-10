@@ -1,4 +1,4 @@
-package com.privalia.mydemo.aspect;
+package com.privalia.binlookup.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

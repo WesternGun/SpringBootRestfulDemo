@@ -6,7 +6,7 @@ spring:
     date-format: dd/MM/yyyy
 
   datasource:
-    url: jdbc:postgresql://10.136.182.76:5432/test1
+    url: jdbc:postgresql://10.136.182.160:5432/test1
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -17,4 +17,5 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
 # Because detection is disabled you have to set correct dialect by hand.
+
       database-platform: org.hibernate.dialect.PostgreSQL9Dialect

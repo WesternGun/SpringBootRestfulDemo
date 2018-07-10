@@ -1,4 +1,4 @@
-package com.privalia.mydemo.model;
+package com.privalia.binlookup.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,7 +26,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @JsonComponent
-@NoArgsConstructor
 @Table(name="bin_info")
 public class BinInfo implements Serializable {
     @Id
@@ -56,9 +55,7 @@ public class BinInfo implements Serializable {
     @JsonProperty("createAt")
     private Date createAt;
     
-    public BinInfo(String bin, String json_full, Date createAt) {
-        this.bin = bin;
-        this.json_full = json_full;
-        this.createAt = createAt;
+    public BinInfo() {
+        
     }
 }

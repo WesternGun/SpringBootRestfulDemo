@@ -3,6 +3,6 @@ greeting:
 
 spring:
   datasource:
-    url: jdbc:postgresql://10.136.182.76:5432/test1
+    url: jdbc:postgresql://10.136.182.160:5432/test1
     username: postgres
     password: postgres
