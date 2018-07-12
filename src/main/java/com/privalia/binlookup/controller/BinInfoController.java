@@ -1,5 +1,6 @@
 package com.privalia.binlookup.controller;
 
+import java.awt.MediaTracker;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -27,29 +28,19 @@ public class BinInfoController {
     @Autowired
     private BinInfoRepository repository;
     
-    @Value("${greeting.message}")
-    private String message;
-    
-    @RequestMapping("/")
-    public String index() {
-        return message;
-    }
-    
-    
-    @RequestMapping(value="/bin/{bin}", method=RequestMethod.GET)
-    public BinInfo searchBIN(@Valid @PathVariable String bin) {
+    @RequestMapping(value="/search/{bin}", method=RequestMethod.GET)
+    public ResponseEntity<BinInfo> searchBIN(@Valid @PathVariable String bin) {
+        List<BinInfo> found = repository.findAllByBin(bin);
         BodyBuilder builder = ResponseEntity.status(HttpStatus.OK);
         builder.contentType(MediaType.APPLICATION_JSON_UTF8);
-        List<BinInfo> found = repository.findAllByBin(bin);
-        return (found.isEmpty() ? null : found.get(0));
+        return (found.isEmpty() ? builder.body(null) : builder.body(found.get(0)));
     }
     
-    @RequestMapping(value="/bin", method=RequestMethod.POST)
-    public BinInfo insertBIN(@Valid @RequestBody BinInfo bin_info) {
+    @RequestMapping(value="/insert", method=RequestMethod.POST)
+    public ResponseEntity<BinInfo> insertBIN(@Valid @RequestBody BinInfo bin_info) {
         repository.save(bin_info);
-        BodyBuilder builder = (BodyBuilder) ResponseEntity.status(HttpStatus.OK);
-        builder.contentType(MediaType.APPLICATION_JSON_UTF8);
-        return bin_info;
+        BodyBuilder builder = (BodyBuilder) ResponseEntity.status(HttpStatus.CREATED);
+        return builder.contentType(MediaType.APPLICATION_JSON_UTF8).body(bin_info);
     }
 
 }

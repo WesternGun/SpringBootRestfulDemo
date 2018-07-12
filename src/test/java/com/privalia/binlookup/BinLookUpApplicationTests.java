@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MydemoApplicationTests {
+public class BinLookUpApplicationTests {
     
     /**
      * Test if the application will launch.
